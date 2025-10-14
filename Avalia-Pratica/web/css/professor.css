@@ -225,7 +225,6 @@ button.action-btn {
   border-radius: 8px;
   border: none;
   background-color: var(--c2);
-  color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -278,7 +277,7 @@ button.action-btn{
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 button.action-btn:hover {
-    background-color: var(--c3);
+    background-color: var(--c2);
     box-shadow: var(--c1) 0px 0px 5px;
 
 }
