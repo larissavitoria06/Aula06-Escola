@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/home.css">
+</head>
+
+<body>
+       <div class="formulario-container">
+        <h2>Bem Vindo</h2>
+        <form id="loginForm">
+            <label for="username">E-Mail:</label>
+            <input type="text" id="username" required placeholder="E-Mail">
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" required placeholder="Senha">
+
+             <button type="button" onclick="window.location.href='./Professores.html'">ENTRAR</button> 
+        <div id="error-message" style="color: rgb(94, 179, 236); display: none;">Credenciais inválidas</div>
+    </div>
+    <br>
+    <div class="link-container">
+        <p>Não tem uma conta? <a href="./cadastro.html">Cadastre-se</a></p>
+        
+        </div>
+
+    <script src="../Login.js"></script>
+</body>
+</html>

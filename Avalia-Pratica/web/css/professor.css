@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --c1: #4a9cdf;
+    --c2: #1f66c2;
+    --c5: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    outline: none; 
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+}
+
+header {
+    position: inherit; 
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 2rem 9%;
+    display: flex;    
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+header .logo {
+    font-size: 2.4rem;
+    color: #333;
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+header .logo span {
+    color: var(--c2);
+    font-weight: bolder;
+    font-size: 2rem;
+}
+
+header .navbar a {
+    font-size: 2rem;
+    padding: 0 1.5rem;
+    color: #6e6d6d;
+}
+
+header .navbar a:hover {
+    color: var(--c1);
+}
+
+header .icons a {
+    font-size: 2.5rem;
+    color: #333;
+    margin-left: 1.5rem;
+}
+
+header .icons a:hover {
+    color: var(--c1);
+}
+header .icons #menu-btn {
+    display: none;
+}
+header label {
+    font-size: 3rem;
+    color: #333;
+    cursor: pointer;
+    display: none;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #333;
+    font-size: 3rem;
+}
+
+/* corrigido: faltava o ponto antes de link-container */
+.link-container {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.link-container a {
+    color: var(--c1);
+    text-decoration: underline;
+}
+.link-container a:hover {
+    color: var(--c2);
+    text-decoration: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 2rem;
+    color: #fff;
+    background: var(--c1);
+    border-radius: 0.2rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    border: none;
+    transition: background 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    margin-left: 75%;
+}
+
+button.btn:hover {
+    background: var(--c2);
+}
+
+/* ===== Responsive CSS ===== */
+@media (max-width: 991px) {
+    header {
+        padding: 2rem;
+    }
+
+    header .navbar a {
+        font-size: 1.8rem;
+        padding: 0 1rem;
+    }
+    header .icons a {
+        font-size: 2.2rem;
+        margin-left: 1rem;
+    }
+}
+
+/* Professor Dashboard Styles */
+
+main > h2 {
+  margin-top: 40px;
+  margin-bottom: 24px;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.task-columns {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.task-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 16px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-info {
+  font-size: 0.875rem;
+}
+
+.task-info strong {
+  font-weight: 600;
+}
+
+.task-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+button.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.material-icons {
+  font-size: 18px;
+}
+
+.status-radio-group {
+  margin-top: 12px;
+  font-size: 0.875rem;
+  display: flex;
+  gap: 16px;
+}
+
+.status-radio-group label {
+  cursor: pointer;
+}
+
+.status-radio-group input[type="radio"] {
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.change-status-btn {
+  margin-top: 12px;
+  padding: 8px 16px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--c2);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.change-status-btn:hover,
+.change-status-btn:focus {
+  background-color: var(--c3);
+  outline: none;
+}
+
+.task-column-title {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 1023px) {
+  .task-columns {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  nav.menu {
+    gap: 16px;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+h3 {
+  font-size: 4.5rem;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+button.action-btn{
+  background-color: var(--c1);
+  color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+button.action-btn:hover {
+    background-color: var(--c3);
+    box-shadow: var(--c1) 0px 0px 5px;
+
+}
