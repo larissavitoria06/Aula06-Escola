@@ -8,5 +8,5 @@ app.use(express.json());
 
 app.use("/api", authRoutes);
 
-const PORT = 3000;
+const PORT = 3006;
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
