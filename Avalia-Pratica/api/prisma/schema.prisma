@@ -11,7 +11,7 @@ model Professor {
   id        Int       @id @default(autoincrement())
   nome      String
   email     String    @unique
-  telefone  String?
+  senha     String
   turmas    Turma[]
   criadoEm  DateTime  @default(now())
 }
@@ -21,5 +21,15 @@ model Turma {
   nome         String
   professorId  Int
   professor    Professor  @relation(fields: [professorId], references: [id], onDelete: Cascade)
+  atividades   Atividade[]
   criadoEm     DateTime   @default(now())
+}
+
+model Atividade {
+  id        Int       @id @default(autoincrement())
+  titulo    String
+  descricao String?
+  turmaId   Int
+  turma     Turma     @relation(fields: [turmaId], references: [id], onDelete: Cascade)
+  criadoEm  DateTime  @default(now())
 }

@@ -1,15 +1,17 @@
-import express from "express";
-import cors from "cors";
-import routes from "./routes/routes.js";
-import turma from "./routes/turma.js";
+// src/server.js
+const express = require('express');
+const cors = require('cors');
+const proferouter = require('./router/proferouter.js');
+const turmarouter = require('./routes/turmaRoutes');
+const ativirouter = require('./routes/ativirouter');
 
 const app = express();
-
 app.use(cors());
 app.use(express.json());
 
-app.use("/api", routes);
-app.use("/api/turmas", turma);
+app.use('/professores', proferoutes);
+app.use('/turmas', turmaroutes);
+app.use('/atividades', ativirouter);
 
-const PORT = 3006;
+const PORT = process.env.PORT || 3006;
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));

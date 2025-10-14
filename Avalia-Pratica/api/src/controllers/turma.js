@@ -1,28 +1,39 @@
-let turmas = [
-  { id: 1, numero: 1, nome: "Turma A" },
-  { id: 2, numero: 2, nome: "Turma B" },
-];
+// src/controllers/turmaController.js
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
-// Listar todas as turmas
-export const listarTurmas = (req, res) => {
-  res.json(turmas);
+exports.cadastrar = async (req, res) => {
+  const { nome } = req.body;
+  try {
+    const turma = await prisma.turma.create({
+      data: { nome, professorId: req.professorId }
+    });
+    res.json(turma);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 };
 
-// Criar nova turma
-export const criarTurma = (req, res) => {
-  const { numero, nome } = req.body;
-  const novaTurma = {
-    id: Date.now(),
-    numero,
-    nome,
-  };
-  turmas.push(novaTurma);
-  res.status(201).json(novaTurma);
+exports.listar = async (req, res) => {
+  try {
+    const turmas = await prisma.turma.findMany({
+      where: { professorId: req.professorId },
+      include: { atividades: true }
+    });
+    res.json(turmas);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 };
 
-// Excluir turma
-export const excluirTurma = (req, res) => {
-  const id = parseInt(req.params.id);
-  turmas = turmas.filter((t) => t.id !== id);
-  res.status(204).end();
+exports.excluir = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const turma = await prisma.turma.delete({
+      where: { id: parseInt(id) }
+    });
+    res.json({ message: 'Turma excluída', turma });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 };
